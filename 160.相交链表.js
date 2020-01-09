@@ -19,7 +19,27 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-    
+  if(!headA || ! headB) return null;
+  let a = headA;
+  let b = headB;
+  let aChange = true;
+  let bChange = true;
+  while(a !== b) {
+    if(a.next === null && aChange) {
+      a = headB;
+      aChange = false;
+    } else {
+      a = a.next
+    }
+    if(b.next === null  && bChange) {
+      b = headA;
+      bChange = false;
+    } else {
+      b = b.next
+    }
+  }
+
+  return a
 };
 // @lc code=end
 
