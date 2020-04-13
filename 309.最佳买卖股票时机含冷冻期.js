@@ -6,8 +6,16 @@
  * 
  * 
  * 股票四种状态： 'hold'， 'unhold'，'freeze'，'sale'
+ * 
+ * 
  * 交易天数 i
+ * 
+ * 
  * 价格list prices[]
+ * 
+ * 
+ * 
+ * 
  * 状态转移方程 dp(i, 'hold') = Math.max(dp(i-1, 'hold'), dp(i-1, 'unhold') - prices[i], dp(i-1, 'freeze') - prices[i])
  * 
  *             dp(i, 'unhold') = Math.max(dp(i-1, 'unhold'), dp(i-1, 'freeze'))
@@ -15,6 +23,11 @@
  *             dp(i, 'freeze') = dp(i-1, 'sale')
  * 
  *             dp(i, 'sale') = dp(i-1, 'hold')
+ * 
+ * 
+ * 
+ * 
+ * 
  *
  * 边界条件 dp(0, 'hold') = -prices[0]
  *         dp(0, 'unhold') = 0
